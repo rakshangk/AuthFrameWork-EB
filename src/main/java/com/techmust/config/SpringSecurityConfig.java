@@ -1,9 +1,11 @@
 package com.techmust.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-public class SpringSecurityConfig
+@PropertySource("classpath:resources/application.properties")
+public class SpringSecurityConfig 
 {  
 	
 }
