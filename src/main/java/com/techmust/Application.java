@@ -22,7 +22,7 @@ public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args)
     {
-    	//System.setProperty("server.servlet.context-path", "/techmust");
+    	System.setProperty("server.servlet.context-path", "/techmust");
         SpringApplication.run(Application.class, args);
     }   
 }
