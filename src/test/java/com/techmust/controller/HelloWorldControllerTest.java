@@ -49,7 +49,7 @@ public class HelloWorldControllerTest {
     @Test
     @DisplayName("Basic test for GET request")
     void testGetRequest() {
-        ResponseEntity responseEntity = controller.helloWorldGet(INPUT_NAME);
+        ResponseEntity<?> responseEntity = controller.helloWorldGet(INPUT_NAME);
 
         // Verify the response obtained matches the values we expect.
         JSONObject jsonObjectFromResponse = new JSONObject(responseEntity.getBody().toString());
@@ -63,7 +63,7 @@ public class HelloWorldControllerTest {
     @Test
     @DisplayName("Basic test for POST request")
     void testPostRequest() {
-        ResponseEntity responseEntity = controller.helloWorldPost(INPUT_NAME);
+        ResponseEntity<?> responseEntity = controller.helloWorldPost(INPUT_NAME);
 
         // Verify the response obtained matches the values we expect.
         JSONObject jsonObjectFromResponse = new JSONObject(responseEntity.getBody().toString());

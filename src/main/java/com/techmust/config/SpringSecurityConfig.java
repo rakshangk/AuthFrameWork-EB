@@ -20,9 +20,8 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter 
 {  
 	@Autowired
-    private DataSource datasource;
+    private DataSource datasource;   
 	
-	  
 	@Override
 	 protected void configure(HttpSecurity oHttpSecurity) throws Exception
     {		

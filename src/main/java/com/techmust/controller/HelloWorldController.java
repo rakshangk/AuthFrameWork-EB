@@ -17,12 +17,12 @@ public class HelloWorldController {
     private static final String MESSAGE_FORMAT = "Hello %s!";
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity helloWorldGet(@RequestParam(value = "name", defaultValue = "World") String name) {
+    public ResponseEntity<String> helloWorldGet(@RequestParam(value = "name", defaultValue = "World") String name) {
         return ResponseEntity.ok(createResponse(name));
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity helloWorldPost(@RequestParam(value = "name", defaultValue = "World") String name) {
+    public ResponseEntity<String> helloWorldPost(@RequestParam(value = "name", defaultValue = "World") String name) {
         return ResponseEntity.ok(createResponse(name));
     }
 
