@@ -14,8 +14,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  */
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer
-{
-
+{	
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(Application.class);
@@ -23,7 +22,6 @@ public class Application extends SpringBootServletInitializer
 
     public static void main(String[] args)
     {
-    	//System.setProperty("server.servlet.ContextPath", "/techmust");
-        SpringApplication.run(Application.class, args);
+    	SpringApplication.run(Application.class, args);
     }   
 }
