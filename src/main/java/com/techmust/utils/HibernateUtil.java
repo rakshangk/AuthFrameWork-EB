@@ -12,19 +12,17 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
 
 public class HibernateUtil
-{
-
+{	
 	private static SessionFactory m_oSessionFactory = null;
-	 private static StandardServiceRegistry m_StandardServiceRegistry;
+	private static StandardServiceRegistry m_StandardServiceRegistry;
 	
 	private static SessionFactory getSessionFactory()
 	{
 		if(m_oSessionFactory == null)
 		{
-			try {
-
+			try {				
 	            // Create registry builder
-	            StandardServiceRegistryBuilder registryBuilder = new StandardServiceRegistryBuilder();
+	            StandardServiceRegistryBuilder oServiceRegistryBuilder = new StandardServiceRegistryBuilder();
 	            Map<String, String> settings = new HashMap<>();
 	            settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
 	            settings.put(Environment.URL, "jdbc:mysql://authframework.cbuatu53m418.ap-southeast-1.rds.amazonaws.com:3306/authFramework?useSSL=false");
@@ -32,9 +30,9 @@ public class HibernateUtil
 	            settings.put(Environment.PASS, "Tech49Must42");
 	            settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5InnoDBDialect");
 	            // Apply settings
-	            registryBuilder.applySettings(settings);
+	            oServiceRegistryBuilder.applySettings(settings);
 	            // Create registry
-	            m_StandardServiceRegistry = registryBuilder.build();
+	            m_StandardServiceRegistry = oServiceRegistryBuilder.build();
 	            // Create MetadataSources
 	            MetadataSources sources = new MetadataSources(m_StandardServiceRegistry);
 	            // Create Metadata

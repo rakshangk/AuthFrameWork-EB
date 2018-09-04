@@ -1,4 +1,4 @@
-package com.techmust.response;
+package com.techmust.tenant.response;
 
 import java.util.List;
 
