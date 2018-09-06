@@ -24,14 +24,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 	
 	@Override
 	 protected void configure(HttpSecurity oHttpSecurity) throws Exception
-    {		
+    {	
 		oHttpSecurity.authorizeRequests()
         .antMatchers("/").permitAll()
         .anyRequest().authenticated()
         .and()
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).sessionFixation().none()
+        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS).sessionFixation().none()
         .and()
-        .csrf().disable().headers().frameOptions().disable().and().httpBasic();
+        .csrf().disable().headers().frameOptions().disable().and().httpBasic();		
     }
 
 	@Bean
@@ -46,5 +46,5 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 	protected void configureGlobal(AuthenticationManagerBuilder oAuthenticationManagerBuilder) throws Exception 
 	{
 		oAuthenticationManagerBuilder.jdbcAuthentication().dataSource(datasource);
-	}	
+	}
 }
