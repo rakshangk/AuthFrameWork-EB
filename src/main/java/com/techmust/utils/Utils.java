@@ -14,20 +14,23 @@ public class Utils
     {
 		Session oSession  = null;
 		List<String> arrTenantList = null;
+		oSession = HibernateUtil.getSession();
 		try
-		{
-			oSession = HibernateUtil.getSession();
+		{			
 			oSession.beginTransaction();
 	    	Query qQuery = oSession.createNativeQuery("select tenant from user_tenants where username = :username");
 	    	qQuery.setParameter("username", strUsername);
 	    	arrTenantList = qQuery.getResultList();
-	    	oSession.getTransaction().commit();
-	    	oSession.close();
+	    	oSession.getTransaction().commit();	    	
 		}
 		catch (Exception eException) 
 		{
 			eException.printStackTrace();
-		}    	
+		}   
+		finally 
+		{
+			oSession.close();
+		}
 		return arrTenantList;    	
     }
 }

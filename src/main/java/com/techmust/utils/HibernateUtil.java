@@ -20,7 +20,8 @@ public class HibernateUtil
 	{
 		if(m_oSessionFactory == null)
 		{
-			try {				
+			try 
+			{				
 	            // Create registry builder
 	            StandardServiceRegistryBuilder oServiceRegistryBuilder = new StandardServiceRegistryBuilder();
 	            Map<String, String> settings = new HashMap<>();
@@ -29,6 +30,7 @@ public class HibernateUtil
 	            settings.put(Environment.USER, "TMUser");
 	            settings.put(Environment.PASS, "Tech49Must42");
 	            settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5InnoDBDialect");
+	            settings.put(Environment.POOL_SIZE, "100");
 	            // Apply settings
 	            oServiceRegistryBuilder.applySettings(settings);
 	            // Create registry
@@ -46,7 +48,7 @@ public class HibernateUtil
 	        	eException.printStackTrace();
 	            if (m_StandardServiceRegistry != null) 
 	               StandardServiceRegistryBuilder.destroy(m_StandardServiceRegistry);
-	         }
+	        }
 	      }			
 		return m_oSessionFactory;
 	}
