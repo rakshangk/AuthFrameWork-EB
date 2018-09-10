@@ -151,6 +151,7 @@ public class MasterDatabaseConfig
         properties.put(org.hibernate.cfg.Environment.SHOW_SQL, true);
         properties.put(org.hibernate.cfg.Environment.FORMAT_SQL, true);
         properties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "update");
+        properties.put(org.hibernate.cfg.Environment.C3P0_MAX_SIZE, "1000");
         return properties;
     }
 }

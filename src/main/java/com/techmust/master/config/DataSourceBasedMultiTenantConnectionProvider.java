@@ -70,7 +70,6 @@ public class DataSourceBasedMultiTenantConnectionProvider extends AbstractDataSo
      */
     private String initializeTenantIfLost(String strTenantIdentifier) 
     {
-    	 LOG.info("Inside initializeTenantIfLost method");
         if (TenantContextHolder.getTenant() == null) 
         {
             Authentication oAuthentication = SecurityContextHolder.getContext().getAuthentication();

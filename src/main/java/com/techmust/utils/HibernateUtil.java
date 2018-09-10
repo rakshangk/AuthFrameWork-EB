@@ -30,7 +30,7 @@ public class HibernateUtil
 	            settings.put(Environment.USER, "TMUser");
 	            settings.put(Environment.PASS, "Tech49Must42");
 	            settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5InnoDBDialect");
-	            settings.put(Environment.POOL_SIZE, "100");
+	            settings.put(Environment.POOL_SIZE, "1000");
 	            // Apply settings
 	            oServiceRegistryBuilder.applySettings(settings);
 	            // Create registry
