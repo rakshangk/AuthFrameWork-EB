@@ -22,37 +22,35 @@ public class HibernateUtil
 		{
 			try 
 			{				
-	            // Create registry builder
-	            StandardServiceRegistryBuilder oServiceRegistryBuilder = new StandardServiceRegistryBuilder();
-	            Map<String, String> settings = new HashMap<>();
-	            settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-	            settings.put(Environment.URL, "jdbc:mysql://authframework.cbuatu53m418.ap-southeast-1.rds.amazonaws.com:3306/authFramework?useSSL=false");
-	            settings.put(Environment.USER, "TMUser");
-	            settings.put(Environment.PASS, "Tech49Must42");
-	            settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5InnoDBDialect");
-	            settings.put(Environment.POOL_SIZE, "1000");
-	            // Apply settings
-	            oServiceRegistryBuilder.applySettings(settings);
-	            // Create registry
-	            m_StandardServiceRegistry = oServiceRegistryBuilder.build();
-	            // Create MetadataSources
-	            MetadataSources sources = new MetadataSources(m_StandardServiceRegistry);
-	            // Create Metadata
-	            Metadata metadata = sources.getMetadataBuilder().build();
-	            // Create SessionFactory
-	            m_oSessionFactory = metadata.getSessionFactoryBuilder().build();
-
-	         }
+				// Create registry builder
+				StandardServiceRegistryBuilder oServiceRegistryBuilder = new StandardServiceRegistryBuilder();
+				Map<String, String> settings = new HashMap<>();
+				settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
+				settings.put(Environment.URL, "jdbc:mysql://authframework.cbuatu53m418.ap-southeast-1.rds.amazonaws.com:3306/authFramework?useSSL=false");
+				settings.put(Environment.USER, "TMUser");
+				settings.put(Environment.PASS, "Tech49Must42");
+				settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5InnoDBDialect");
+				settings.put(Environment.POOL_SIZE, "1000");
+				// Apply settings
+				oServiceRegistryBuilder.applySettings(settings);
+				// Create registry
+				m_StandardServiceRegistry = oServiceRegistryBuilder.build();
+				// Create MetadataSources
+				MetadataSources sources = new MetadataSources(m_StandardServiceRegistry);
+				// Create Metadata
+				Metadata metadata = sources.getMetadataBuilder().build();
+				// Create SessionFactory
+				m_oSessionFactory = metadata.getSessionFactoryBuilder().build();
+			}
 			catch (Exception eException)
 			{
-	        	eException.printStackTrace();
-	            if (m_StandardServiceRegistry != null) 
-	               StandardServiceRegistryBuilder.destroy(m_StandardServiceRegistry);
-	        }
-	      }			
+				eException.printStackTrace();
+				if (m_StandardServiceRegistry != null) 
+					StandardServiceRegistryBuilder.destroy(m_StandardServiceRegistry);
+			}
+		}			
 		return m_oSessionFactory;
 	}
-	
 	public static Session getSession()
 	{
 		Session oSession = null;

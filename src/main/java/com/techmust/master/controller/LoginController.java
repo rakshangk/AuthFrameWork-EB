@@ -19,34 +19,33 @@ import com.techmust.utils.Utils;
 
 @RestController("loginController")
 public class LoginController 
-{		
-	 @Autowired
-	 private JobsService jobsService;
+{
+	@Autowired
+	private JobsService jobsService;
 
-    @RequestMapping(value="/signIn",method = RequestMethod.POST,
-			produces = {"application/json"})
+	@RequestMapping(value="/signIn",method = RequestMethod.POST, produces = {"application/json"})
 	public @ResponseBody LoginResponse authenticate() throws SQLException 
 	{
-    	LoginResponse oLoginResponse = new LoginResponse();
-    	oLoginResponse.setM_bIsSuccess(true);    	
-    	Authentication oAuthentication = SecurityContextHolder.getContext().getAuthentication();
-    	String strUserName = oAuthentication.getName();
-    	oLoginResponse.setStrResponseMessage(LoginConstants.m_strLoginSuccessMessage + "For : " + strUserName);  
-    	List<String> arrTenants = Utils.getUserConnectedTenents(strUserName);
-    	oLoginResponse.setArrTenantList(arrTenants);
-    	if(arrTenants.size() > 0)
-    		TenantContextHolder.setTenantId(arrTenants.get(0));
-    	System.out.println(jobsService.findAllJobs());
-	    return oLoginResponse;
+		LoginResponse oLoginResponse = new LoginResponse();
+		oLoginResponse.setM_bIsSuccess(true);    	
+		Authentication oAuthentication = SecurityContextHolder.getContext().getAuthentication();
+		String strUserName = oAuthentication.getName();
+		oLoginResponse.setStrResponseMessage(LoginConstants.m_strLoginSuccessMessage + "For : " + strUserName);
+		List<String> arrTenants = Utils.getUserConnectedTenents(strUserName);
+		oLoginResponse.setArrTenantList(arrTenants);
+		if(arrTenants.size() > 0)
+			TenantContextHolder.setTenantId(arrTenants.get(0));
+		System.out.println(jobsService.findAllJobs());
+		return oLoginResponse;
 	}
-    
-    @RequestMapping(value="/users",method = RequestMethod.POST,
-			produces = {"application/json"})
+	
+	@RequestMapping(value="/users",method = RequestMethod.POST,
+	produces = {"application/json"})
 	public @ResponseBody LoginResponse users() 
 	{
-    	LoginResponse oLoginResponse = new LoginResponse();
-    	oLoginResponse.setM_bIsSuccess(true);
-    	oLoginResponse.setStrResponseMessage("user method");
-	    return oLoginResponse;
+		LoginResponse oLoginResponse = new LoginResponse();
+		oLoginResponse.setM_bIsSuccess(true);
+		oLoginResponse.setStrResponseMessage("user method");
+		return oLoginResponse;
 	}
 }

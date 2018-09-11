@@ -10,6 +10,6 @@ import com.techmust.master.model.MasterTenant;
 @Repository
 public interface MasterTenantRepository extends JpaRepository<MasterTenant, Long> 
 {
-    @Query("select TenantId from MasterTenant TenantId where TenantId.m_strTenantId = :tenantId")
-    MasterTenant findByTenantId(@Param("tenantId") String tenantId);
+	@Query("select TenantId from MasterTenant TenantId where TenantId.m_strTenantId = :tenantId")
+	MasterTenant findByTenantId(@Param("tenantId") String tenantId);
 }

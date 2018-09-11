@@ -14,14 +14,14 @@ import com.techmust.master.repository.MasterTenantRepository;
  * 
  */
 @Service
-public class MasterTenantServiceImpl implements MasterTenantService 
+public class MasterTenantServiceImpl implements MasterTenantService
 {
-    @Autowired
-    MasterTenantRepository masterTenantRepo;
+	@Autowired
+	MasterTenantRepository masterTenantRepo;
 
-    @Override
-    public MasterTenant findByTenantId(String tenantId)
-    {
-        return masterTenantRepo.findByTenantId(tenantId);
-    }
+	@Override
+	public MasterTenant findByTenantId(String tenantId)
+	{
+		return masterTenantRepo.findByTenantId(tenantId);
+	}
 }

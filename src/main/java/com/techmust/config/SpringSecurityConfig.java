@@ -14,23 +14,23 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 @Configuration
 @PropertySource("classpath:application.properties")
 @EnableWebSecurity
-public class SpringSecurityConfig extends WebSecurityConfigurerAdapter 
-{  
+public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
+{
 	@Autowired
-    private DataSource datasource;   
-	
-	@Override
-	 protected void configure(HttpSecurity oHttpSecurity) throws Exception
-    {	
-		oHttpSecurity.authorizeRequests()
-        .antMatchers("/").permitAll()
-        .anyRequest().authenticated()
-        .and()
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS).sessionFixation().newSession()
-        .and()
-        .csrf().disable().headers().frameOptions().disable().and().httpBasic();		
-    }
+	private DataSource datasource;
 
+	@Override
+	protected void configure(HttpSecurity oHttpSecurity) throws Exception
+	{
+		oHttpSecurity.authorizeRequests()
+		.antMatchers("/").permitAll()
+		.anyRequest().authenticated()
+		.and()
+		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS).sessionFixation().newSession()
+		.and()
+		.csrf().disable().headers().frameOptions().disable().and().httpBasic();
+	}
+	
 	@Autowired
 	protected void configureGlobal(AuthenticationManagerBuilder oAuthenticationManagerBuilder) throws Exception 
 	{

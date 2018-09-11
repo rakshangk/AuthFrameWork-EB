@@ -12,6 +12,6 @@ import com.techmust.master.model.MasterTenant;
  *
  */
 public interface MasterTenantService 
-{    
-    MasterTenant findByTenantId(@Param("tenantId") String tenantId);
+{
+	MasterTenant findByTenantId(@Param("tenantId") String tenantId);
 }

@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Table(name = "job")
 public class Job
 {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "job_id")
@@ -20,24 +19,29 @@ public class Job
 	@Column(name = "job_name")
 	private String m_strJobName;
 
-	public int getM_nId() {
+	public int getM_nId()
+	{
 		return m_nId;
 	}
 
-	public void setM_nId(int m_nId) {
+	public void setM_nId(int m_nId)
+	{
 		this.m_nId = m_nId;
 	}
 
-	public String getM_strJobName() {
+	public String getM_strJobName()
+	{
 		return m_strJobName;
 	}
 
-	public void setM_strJobName(String m_strJobName) {
+	public void setM_strJobName(String m_strJobName)
+	{
 		this.m_strJobName = m_strJobName;
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "Job [m_nId=" + m_nId + ", m_strJobName=" + m_strJobName + "]";
-	}	
+	}
 }

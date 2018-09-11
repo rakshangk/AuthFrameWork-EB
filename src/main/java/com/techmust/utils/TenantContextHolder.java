@@ -27,22 +27,21 @@ package com.techmust.utils;
  * access/modify other thread’s Thread Local variables.</li>
  * </ul>
  */
-public class TenantContextHolder 
+public class TenantContextHolder
 {
-    private static final ThreadLocal<String> CONTEXT = new ThreadLocal<>();
+	private static final ThreadLocal<String> CONTEXT = new ThreadLocal<>();
+	public static void setTenantId(String tenant)
+	{
+		CONTEXT.set(tenant);
+	}
 
-    public static void setTenantId(String tenant)
-    {
-        CONTEXT.set(tenant);
-    }
+	public static String getTenant()
+	{
+		return CONTEXT.get();
+	}
 
-    public static String getTenant() 
-    {
-        return CONTEXT.get();
-    }
-
-    public static void clear()
-    {
-        CONTEXT.remove();
-    }
+	public static void clear()
+	{
+		CONTEXT.remove();
+	}
 }

@@ -12,5 +12,5 @@ import com.techmust.tenant.model.Job;
  */
 public interface JobsService
 {
-  List <Job> findAllJobs();
+	List<Job> findAllJobs();
 }

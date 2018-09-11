@@ -8,5 +8,5 @@ import com.techmust.tenant.model.Job;
 @Repository
 public interface JobsRepository extends JpaRepository<Job, Long>
 {
-   
+
 }

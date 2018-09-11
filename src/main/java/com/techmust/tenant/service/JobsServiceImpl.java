@@ -19,16 +19,15 @@ import com.techmust.tenant.model.Job;
 @Service
 public class JobsServiceImpl implements JobsService 
 {
-
-    private static final Logger LOG = LoggerFactory.getLogger(JobsServiceImpl.class);
-
-    @Autowired
-    private JobsRepository jobsRepository;
-    
+	private static final Logger LOG = LoggerFactory.getLogger(JobsServiceImpl.class);
+	
+	@Autowired
+	private JobsRepository jobsRepository;
+	
 	@Override
 	public List <Job> findAllJobs()
-	{				
-		 LOG.info("-------------- findAllJobs method log---------------");
-		 return jobsRepository.findAll();
+	{
+		LOG.info("-------------- findAllJobs method log---------------");
+		return jobsRepository.findAll();
 	}
 }

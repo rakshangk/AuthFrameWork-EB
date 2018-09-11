@@ -11,16 +11,16 @@ import com.techmust.tenant.response.JobResponse;
 import com.techmust.tenant.service.JobsService;
 
 @RestController("TenantJobListController")
-public class TenantJobListController 
+public class TenantJobListController
 {
 	@Autowired
-	 private JobsService jobsService; 
-	
-    @RequestMapping(value="/listJobs",method = RequestMethod.GET, produces = {"application/json"})
+	private JobsService jobsService;
+
+	@RequestMapping(value="/listJobs",method = RequestMethod.GET, produces = {"application/json"})
 	public @ResponseBody JobResponse  getJobList() throws SQLException 
 	{
-    	JobResponse oJobResponse = new JobResponse();
-    	oJobResponse.setArrJobList(jobsService.findAllJobs());
-    	return oJobResponse;
+		JobResponse oJobResponse = new JobResponse();
+		oJobResponse.setArrJobList(jobsService.findAllJobs());
+		return oJobResponse;
 	}
 }

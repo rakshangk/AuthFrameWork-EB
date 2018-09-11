@@ -13,20 +13,22 @@ public class LoginResponse
 		return m_bIsSuccess;
 	}
 	
-	public List<String> getArrTenantList() {
+	public List<String> getArrTenantList()
+	{
 		return arrTenantList;
 	}
-
-	public void setArrTenantList(List<String> arrTenantList) {
+	
+	public void setArrTenantList(List<String> arrTenantList)
+	{
 		this.arrTenantList = arrTenantList;
 	}
-
+	
 	public void setM_bIsSuccess(boolean m_bIsSuccess)
 	{
 		this.m_bIsSuccess = m_bIsSuccess;
 	}
 	
-	public String getStrResponseMessage() 
+	public String getStrResponseMessage()
 	{
 		return strResponseMessage;
 	}
