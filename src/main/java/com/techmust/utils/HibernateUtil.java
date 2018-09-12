@@ -30,7 +30,10 @@ public class HibernateUtil
 				settings.put(Environment.USER, "TMUser");
 				settings.put(Environment.PASS, "Tech49Must42");
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5InnoDBDialect");
-				settings.put(Environment.POOL_SIZE, "1000");
+				settings.put(Environment.C3P0_TIMEOUT , "1800");
+				settings.put(Environment.C3P0_MIN_SIZE , "5");
+				settings.put(Environment.C3P0_MAX_SIZE , "20");
+				settings.put(Environment.C3P0_MAX_STATEMENTS , "50");
 				// Apply settings
 				oServiceRegistryBuilder.applySettings(settings);
 				// Create registry
