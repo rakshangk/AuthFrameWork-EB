@@ -24,7 +24,7 @@ multitenancy:
         password: Tech49Must42
         driverClassName: com.mysql.cj.jdbc.Driver
         connectionTimeout: 20000
-        maxPoolSize: 100
+        maxPoolSize: 35
         idleTimeout: 300000
         minIdle: 10
         poolName: masterdb-connection-pool

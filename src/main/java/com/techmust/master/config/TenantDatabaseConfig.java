@@ -101,8 +101,8 @@ public class TenantDatabaseConfig
 		arrPropertiesMap.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "update");
 		arrPropertiesMap.put(org.hibernate.cfg.Environment.C3P0_TIMEOUT , "1800");
 		arrPropertiesMap.put(org.hibernate.cfg.Environment.C3P0_MIN_SIZE , "5");
-		arrPropertiesMap.put(org.hibernate.cfg.Environment.C3P0_MAX_SIZE , "20");
-		arrPropertiesMap.put(org.hibernate.cfg.Environment.C3P0_MAX_STATEMENTS , "50");		
+		arrPropertiesMap.put(org.hibernate.cfg.Environment.C3P0_MAX_SIZE , "15");
+		arrPropertiesMap.put(org.hibernate.cfg.Environment.C3P0_MAX_STATEMENTS , "15");		
 		oLocalContainerEntityManagerFactoryBean.setJpaPropertyMap(arrPropertiesMap);
 		LOG.info("tenantEntityManagerFactory set up successfully!");
 		return oLocalContainerEntityManagerFactoryBean;
