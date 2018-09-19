@@ -17,12 +17,9 @@ public class NewUserCreationController
 	@RequestMapping(value = "/signUp",  method = RequestMethod.POST , headers = "Accept=application/json")
 	public Boolean NewUserCreation(HttpServletRequest oServletRequest,HttpServletResponse oServletResponse)
 	{
-		LOG.info("inside NewUserCreationController");
-		JSONObject jsonObject = null;
-		String name = "";
-		jsonObject = new JSONObject(oServletRequest.getParameter("jsonObject"));
-		if(jsonObject.has("name"))  
-			name = jsonObject.getString("name");
+		LOG.info("inside NewUserCreationController"); 
+		JSONObject myResponse = new JSONObject ( oServletRequest.getParameter("user").toString());
+		LOG.info("signUp JSON : " + myResponse);		
 		Boolean bNewUserCreationStatus = false;	
 		return bNewUserCreationStatus;
 	}
