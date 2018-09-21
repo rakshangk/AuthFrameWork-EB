@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.techmust.tenant.constants.LoginConstants;
+import com.techmust.constants.LoginConstants;
 import com.techmust.tenant.response.LoginResponse;
 import com.techmust.tenant.service.JobsService;
 import com.techmust.utils.TenantContextHolder;

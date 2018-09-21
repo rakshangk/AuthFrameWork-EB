@@ -3,6 +3,7 @@ package com.techmust.config;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,6 +12,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 @Configuration
 @PropertySource("classpath:application.properties")
@@ -18,7 +20,15 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 {
 	@Autowired
-	private DataSource datasource;
+	private DataSource datasource;	
+	
+	@Bean
+	public JdbcUserDetailsManager jdbcUserDetailsManager() throws Exception
+	{
+		JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager();
+		jdbcUserDetailsManager.setDataSource(datasource);
+		return jdbcUserDetailsManager;
+	}
 
 	@Override
 	protected void configure(HttpSecurity oHttpSecurity) throws Exception

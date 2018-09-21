@@ -1,4 +1,4 @@
-package com.techmust.tenant.constants;
+package com.techmust.constants;
 
 public class LoginConstants
 {
