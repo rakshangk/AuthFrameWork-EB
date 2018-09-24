@@ -53,7 +53,7 @@ public class UserController
 			oPreparedStatement.setString(1, oTMUserDetails.getM_strUserEmailAddress());
 			oPreparedStatement.setString(2, oTMUserDetails.getM_strFirstName());
 			oPreparedStatement.setString(3, oTMUserDetails.getM_strLastName());
-			oPreparedStatement.setString(4, Integer.toString(oTMUserDetails.getM_strPhoneNumber()));
+			oPreparedStatement.setString(4, oTMUserDetails.getM_strPhoneNumber());
 			oPreparedStatement.execute();
 			oConnection.close();
 		}

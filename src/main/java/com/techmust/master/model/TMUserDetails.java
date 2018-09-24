@@ -7,7 +7,7 @@ public class TMUserDetails
 {
 	private String m_strFirstName;	
 	private String m_strLastName;	
-	private int m_strPhoneNumber;	
+	private String m_strPhoneNumber;	
 	private String m_strUserEmailAddress;
 	private String m_strPassword;
 	
@@ -30,14 +30,14 @@ public class TMUserDetails
 	public void setM_strLastName(String m_strLastName) 
 	{
 		this.m_strLastName = m_strLastName;
-	}
+	}	
 
-	public int getM_strPhoneNumber() 
+	public String getM_strPhoneNumber() 
 	{
 		return m_strPhoneNumber;
 	}
 
-	public void setM_strPhoneNumber(int m_strPhoneNumber) 
+	public void setM_strPhoneNumber(String m_strPhoneNumber) 
 	{
 		this.m_strPhoneNumber = m_strPhoneNumber;
 	}
