@@ -63,7 +63,7 @@ public class TMUserDetails
 	}
 	
 	@JsonCreator
-	public TMUserDetails(@JsonProperty("m_strFirstName") String m_strFirstName, @JsonProperty("m_strLastName") String m_strLastName, @JsonProperty("m_strPhoneNumber") int m_strPhoneNumber, @JsonProperty("m_strUserEmailAddress") String m_strUserEmailAddress, @JsonProperty("m_strPassword") String m_strPassword) 
+	public TMUserDetails(@JsonProperty("m_strFirstName") String m_strFirstName, @JsonProperty("m_strLastName") String m_strLastName, @JsonProperty("m_strPhoneNumber") String m_strPhoneNumber, @JsonProperty("m_strUserEmailAddress") String m_strUserEmailAddress, @JsonProperty("m_strPassword") String m_strPassword) 
 	{
 		super();
 		this.m_strFirstName = m_strFirstName;
