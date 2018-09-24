@@ -13,10 +13,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @PropertySource("classpath:application.properties")
 @EnableWebSecurity
+@EnableWebMvc
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 {
 	@Autowired

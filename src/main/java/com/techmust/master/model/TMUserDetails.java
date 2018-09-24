@@ -1,8 +1,5 @@
 package com.techmust.master.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class TMUserDetails
 {
 	private String m_strFirstName;	
@@ -61,17 +58,4 @@ public class TMUserDetails
 	{
 		this.m_strPassword = m_strPassword;
 	}
-	
-	@JsonCreator
-	public TMUserDetails(@JsonProperty("m_strFirstName") String m_strFirstName, @JsonProperty("m_strLastName") String m_strLastName, @JsonProperty("m_strPhoneNumber") String m_strPhoneNumber, @JsonProperty("m_strUserEmailAddress") String m_strUserEmailAddress, @JsonProperty("m_strPassword") String m_strPassword) 
-	{
-		super();
-		this.m_strFirstName = m_strFirstName;
-		this.m_strLastName = m_strLastName;
-		this.m_strPhoneNumber = m_strPhoneNumber;
-		this.m_strUserEmailAddress = m_strUserEmailAddress;
-		this.m_strPassword = m_strPassword;
-	}
-	
-	
 }
