@@ -22,15 +22,15 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 {
 	@Autowired
-	private DataSource datasource;	
+	private DataSource datasource;
 	
 	@Bean
-	public JdbcUserDetailsManager jdbcUserDetailsManager() throws Exception
+	public JdbcUserDetailsManager GetJdbcUserDetailsManagerInstance() throws Exception
 	{
-		JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager();
-		jdbcUserDetailsManager.setDataSource(datasource);
-		return jdbcUserDetailsManager;
-	}
+		JdbcUserDetailsManager oJdbcUserDetailsManager = new JdbcUserDetailsManager();
+		oJdbcUserDetailsManager.setDataSource(datasource);
+		return oJdbcUserDetailsManager;
+	}	
 
 	@Override
 	protected void configure(HttpSecurity oHttpSecurity) throws Exception
