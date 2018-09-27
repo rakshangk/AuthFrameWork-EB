@@ -28,6 +28,7 @@ public class UserController extends TMController
 		try
 		{
 			oServerResponse.setM_bIsSuccess(oTMUserDetails.createUser(oConnection, m_oJdbcUserDetailsManager));
+			oServerResponse.setM_strResponseMessage("user created successfully...!! For -  '" + oTMUserDetails.getM_strFirstName() +"'");			
 		}
 		catch (DuplicateKeyException eDuplicateKeyException)
 		{
