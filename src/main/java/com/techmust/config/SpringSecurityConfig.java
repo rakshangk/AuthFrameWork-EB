@@ -13,6 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
@@ -23,7 +25,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 {
 	@Autowired
 	private DataSource datasource;
-	
+
 	@Bean
 	public JdbcUserDetailsManager GetJdbcUserDetailsManagerInstance() throws Exception
 	{
@@ -32,6 +34,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 		return oJdbcUserDetailsManager;
 	}	
 
+	@Bean
+	public AuthenticationSuccessHandler customAuthenticationSuccessHandler ()
+	{
+		return new CustomAuthenticationSuccessHandler();
+	}
+
 	@Override
 	protected void configure(HttpSecurity oHttpSecurity) throws Exception
 	{
@@ -39,17 +47,21 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 		.antMatchers("/").permitAll()
 		.anyRequest().authenticated()
 		.and()
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS).sessionFixation().newSession()
+		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).sessionFixation().newSession()
+		.and()
+		.formLogin()
+		.loginProcessingUrl("/signIn")
+		.successHandler(customAuthenticationSuccessHandler())
 		.and()
 		.csrf().disable().headers().frameOptions().disable().and().httpBasic();
 	}
-	
+
 	@Autowired
 	protected void configureGlobal(AuthenticationManagerBuilder oAuthenticationManagerBuilder) throws Exception 
 	{
 		oAuthenticationManagerBuilder.jdbcAuthentication().dataSource(datasource) ;
 	}
-	
+
 	@Override
 	public void configure(WebSecurity oWebSecurity) throws Exception 
 	{

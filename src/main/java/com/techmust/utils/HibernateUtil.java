@@ -20,8 +20,8 @@ public class HibernateUtil
 	{
 		if(m_oSessionFactory == null)
 		{
-			try 
-			{				
+			try
+			{
 				// Create registry builder
 				StandardServiceRegistryBuilder oServiceRegistryBuilder = new StandardServiceRegistryBuilder();
 				Map<String, String> settings = new HashMap<>();
@@ -34,6 +34,7 @@ public class HibernateUtil
 				settings.put(Environment.C3P0_MIN_SIZE , "5");
 				settings.put(Environment.C3P0_MAX_SIZE , "20");
 				settings.put(Environment.C3P0_MAX_STATEMENTS , "50");
+				settings.put(Environment.HBM2DDL_AUTO , "update");
 				// Apply settings
 				oServiceRegistryBuilder.applySettings(settings);
 				// Create registry
@@ -51,7 +52,7 @@ public class HibernateUtil
 				if (m_StandardServiceRegistry != null) 
 					StandardServiceRegistryBuilder.destroy(m_StandardServiceRegistry);
 			}
-		}			
+		}
 		return m_oSessionFactory;
 	}
 	public static Session getSession()

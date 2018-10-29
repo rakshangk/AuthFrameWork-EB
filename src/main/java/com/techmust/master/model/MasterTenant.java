@@ -2,8 +2,6 @@ package com.techmust.master.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -19,20 +17,16 @@ import javax.validation.constraints.Size;
 public class MasterTenant
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long m_nId;
-
 	@Size(max = 30)
 	@Column(name = "tenant_id")
 	private String m_strTenantId;
 
 	@Size(max = 256)
-	@Column(name = "url")
+	@Column(name = "db_url")
 	private String m_strUrl;
 
 	@Size(max = 30)
-	@Column(name = "username")
+	@Column(name = "db_username")
 	private String m_strConnectionUsername;
 
 	/**
@@ -40,25 +34,8 @@ public class MasterTenant
 	 * this should be a encrypted password.
 	 */
 	@Size(max = 30)
-	@Column(name = "password")
+	@Column(name = "db_password")
 	private String m_strConnectionPassword;
-
-	/**
-	 * @return the id
-	 */
-	public Long getM_nId()
-	{
-		return m_nId;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setM_nId(Long m_nId)
-	{
-		this.m_nId = m_nId;
-	}
 
 	/**
 	 * @return the tenantId
